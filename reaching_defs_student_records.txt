@@ -1,0 +1,1006 @@
+Reaching Definitions Analysis for student_records.c
+
+All definitions (ID -> var, block, code):
+  D1: var=sum, block=B0, code='int sum = 0;'
+  D2: var=i, block=B1, code='for (int i = 0; i < SUBJECTS; ++i) sum += s->marks[i];'
+  D3: var=avg, block=B2, code='s->avg = ((float)sum) / SUBJECTS;'
+  D4: var=grade, block=B3, code='if (s->avg >= 90.0f) s->grade = 'A';'
+  D5: var=grade, block=B4, code='else if (s->avg >= 80.0f) s->grade = 'B';'
+  D6: var=grade, block=B5, code='else if (s->avg >= 70.0f) s->grade = 'C';'
+  D7: var=grade, block=B6, code='else if (s->avg >= 60.0f) s->grade = 'D';'
+  D8: var=grade, block=B7, code='else s->grade = 'F';'
+  D9: var=i, block=B9, code='for (int i = 0; i < n; ++i) arr[i].valid = 0;'
+  D10: var=i, block=B11, code='for (int i = 0; i < n; ++i) if (!arr[i].valid) return i;'
+  D11: var=idx, block=B13, code='int idx = find_empty(arr, n);'
+  D12: var=i, block=B16, code='for (int i = 0; i < SUBJECTS; ++i) arr[idx].marks[i] = marks[i];'
+  D13: var=valid, block=B17, code='arr[idx].valid = 1;'
+  D14: var=i, block=B19, code='for (int i = 0; i < n; ++i) {'
+  D15: var=valid, block=B21, code='arr[i].valid = 0;'
+  D16: var=i, block=B24, code='for (int i = 0; i < n; ++i) if (arr[i].valid && strcmp(arr[i].name, name) == 0) return i;'
+  D17: var=dst, block=B27, code='for (; *src; ++src, ++dst) *dst = (char)tolower((unsigned char)*src);'
+  D18: var=dst, block=B28, code='*dst = '\0';'
+  D19: var=found, block=B28, code='int found = 0;'
+  D20: var=i, block=B29, code='for (int i = 0; i < n; ++i) {'
+  D21: var=idx, block=B35, code='int idx = find_student_exact(arr, n, name);'
+  D22: var=i, block=B37, code='for (int i = 0; i < SUBJECTS; ++i) arr[idx].marks[i] = marks[i];'
+  D23: var=i, block=B40, code='for (int i = 0; i < n; ++i) {'
+  D24: var=idx, block=B42, code='int idx = -1;'
+  D25: var=best, block=B42, code='float best = -1.0f;'
+  D26: var=i, block=B43, code='for (int i = 0; i < n; ++i) {'
+  D27: var=best, block=B45, code='if (arr[i].avg > best) { best = arr[i].avg; idx = i; }'
+  D28: var=total, block=B47, code='float total = 0.0f;'
+  D29: var=count, block=B47, code='int count = 0;'
+  D30: var=i, block=B48, code='for (int i = 0; i < n; ++i) {'
+  D31: var=total, block=B50, code='total += arr[i].avg;'
+  D32: var=i, block=B52, code='for (int i = 0; i < n-1; ++i) {'
+  D33: var=j, block=B53, code='for (int j = 0; j < n-1-i; ++j) {'
+  D34: var=tmp, block=B56, code='struct Student tmp = arr[j];'
+  D35: var=fp, block=B56, code='FILE *fp = fopen(fname, "w");'
+  D36: var=i, block=B59, code='for (int i = 0; i < n; ++i) {'
+  D37: var=j, block=B62, code='for (int j = 0; j < SUBJECTS; ++j) fprintf(fp, ",%d", arr[i].marks[j]);'
+  D38: var=fp, block=B64, code='FILE *fp = fopen(fname, "r");'
+  D39: var=p, block=B70, code='char *p = line;'
+  D40: var=q, block=B72, code='char *q = strchr(p, '"');'
+  D41: var=len, block=B74, code='size_t len = q - p;'
+  D42: var=len, block=B75, code='if (len >= NAME_LEN) len = NAME_LEN - 1;'
+  D43: var=p, block=B76, code='p = q + 1;'
+  D44: var=q, block=B78, code='char *q = strchr(p, ',');'
+  D45: var=len, block=B80, code='size_t len = q - p;'
+  D46: var=len, block=B81, code='if (len >= NAME_LEN) len = NAME_LEN - 1;'
+  D47: var=p, block=B82, code='p = q + 1;'
+  D48: var=idx, block=B84, code='int idx = find_empty(arr, n);'
+  D49: var=j, block=B87, code='for (int j = 0; j < SUBJECTS; ++j) arr[idx].marks[j] = m[j];'
+  D50: var=valid, block=B88, code='arr[idx].valid = 1;'
+  D51: var=countA, block=B89, code='int countA = 0, countB = 0, countC = 0, countD = 0, countF = 0, total = 0;'
+  D52: var=i, block=B90, code='for (int i = 0; i < n; ++i) {'
+  D53: var=c, block=B104, code='while ((c = getchar()) != '\n' && c != EOF) {}'
+  D54: var=c, block=B107, code='while ((c = getchar()) != '\n' && c != EOF) {}'
+  D55: var=choice, block=B112, code='int choice = get_int_input("Choice: ");'
+  D56: var=i, block=B115, code='for (int i = 0; i < SUBJECTS; ++i) {'
+  D57: var=idx, block=B119, code='int idx = add_student(students, MAX_STUDENTS, name, marks);'
+  D58: var=idx, block=B122, code='int idx = find_student_exact(students, MAX_STUDENTS, name);'
+  D59: var=i, block=B125, code='for (int i = 0; i < SUBJECTS; ++i) {'
+  D60: var=idx, block=B129, code='int idx = find_topper(students, MAX_STUDENTS);'
+
+gen[B] and kill[B]:
+  B0: gen={D1}, kill={}
+  B1: gen={D2}, kill={D10, D12, D14, D16, D20, D22, D23, D26, D30, D32, D36, D52, D56, D59, D9}
+  B2: gen={D3}, kill={}
+  B3: gen={D4}, kill={D5, D6, D7, D8}
+  B4: gen={D5}, kill={D4, D6, D7, D8}
+  B5: gen={D6}, kill={D4, D5, D7, D8}
+  B6: gen={D7}, kill={D4, D5, D6, D8}
+  B7: gen={D8}, kill={D4, D5, D6, D7}
+  B8: gen={}, kill={}
+  B9: gen={D9}, kill={D10, D12, D14, D16, D2, D20, D22, D23, D26, D30, D32, D36, D52, D56, D59}
+  B10: gen={}, kill={}
+  B11: gen={D10}, kill={D12, D14, D16, D2, D20, D22, D23, D26, D30, D32, D36, D52, D56, D59, D9}
+  B12: gen={}, kill={}
+  B13: gen={D11}, kill={D21, D24, D48, D57, D58, D60}
+  B14: gen={}, kill={}
+  B15: gen={}, kill={}
+  B16: gen={D12}, kill={D10, D14, D16, D2, D20, D22, D23, D26, D30, D32, D36, D52, D56, D59, D9}
+  B17: gen={D13}, kill={D15, D50}
+  B18: gen={}, kill={}
+  B19: gen={D14}, kill={D10, D12, D16, D2, D20, D22, D23, D26, D30, D32, D36, D52, D56, D59, D9}
+  B20: gen={}, kill={}
+  B21: gen={D15}, kill={D13, D50}
+  B22: gen={}, kill={}
+  B23: gen={}, kill={}
+  B24: gen={D16}, kill={D10, D12, D14, D2, D20, D22, D23, D26, D30, D32, D36, D52, D56, D59, D9}
+  B25: gen={}, kill={}
+  B26: gen={}, kill={}
+  B27: gen={D17}, kill={D18}
+  B28: gen={D18, D19}, kill={D17}
+  B29: gen={D20}, kill={D10, D12, D14, D16, D2, D22, D23, D26, D30, D32, D36, D52, D56, D59, D9}
+  B30: gen={}, kill={}
+  B31: gen={}, kill={}
+  B32: gen={}, kill={}
+  B33: gen={}, kill={}
+  B34: gen={}, kill={}
+  B35: gen={D21}, kill={D11, D24, D48, D57, D58, D60}
+  B36: gen={}, kill={}
+  B37: gen={D22}, kill={D10, D12, D14, D16, D2, D20, D23, D26, D30, D32, D36, D52, D56, D59, D9}
+  B38: gen={}, kill={}
+  B39: gen={}, kill={}
+  B40: gen={D23}, kill={D10, D12, D14, D16, D2, D20, D22, D26, D30, D32, D36, D52, D56, D59, D9}
+  B41: gen={}, kill={}
+  B42: gen={D24, D25}, kill={D11, D21, D27, D48, D57, D58, D60}
+  B43: gen={D26}, kill={D10, D12, D14, D16, D2, D20, D22, D23, D30, D32, D36, D52, D56, D59, D9}
+  B44: gen={}, kill={}
+  B45: gen={D27}, kill={D25}
+  B46: gen={}, kill={}
+  B47: gen={D28, D29}, kill={D31}
+  B48: gen={D30}, kill={D10, D12, D14, D16, D2, D20, D22, D23, D26, D32, D36, D52, D56, D59, D9}
+  B49: gen={}, kill={}
+  B50: gen={D31}, kill={D28}
+  B51: gen={}, kill={}
+  B52: gen={D32}, kill={D10, D12, D14, D16, D2, D20, D22, D23, D26, D30, D36, D52, D56, D59, D9}
+  B53: gen={D33}, kill={D37, D49}
+  B54: gen={}, kill={}
+  B55: gen={}, kill={}
+  B56: gen={D34, D35}, kill={D38}
+  B57: gen={}, kill={}
+  B58: gen={}, kill={}
+  B59: gen={D36}, kill={D10, D12, D14, D16, D2, D20, D22, D23, D26, D30, D32, D52, D56, D59, D9}
+  B60: gen={}, kill={}
+  B61: gen={}, kill={}
+  B62: gen={D37}, kill={D33, D49}
+  B63: gen={}, kill={}
+  B64: gen={D38}, kill={D35}
+  B65: gen={}, kill={}
+  B66: gen={}, kill={}
+  B67: gen={}, kill={}
+  B68: gen={}, kill={}
+  B69: gen={}, kill={}
+  B70: gen={D39}, kill={D43, D47}
+  B71: gen={}, kill={}
+  B72: gen={D40}, kill={D44}
+  B73: gen={}, kill={}
+  B74: gen={D41}, kill={D42, D45, D46}
+  B75: gen={D42}, kill={D41, D45, D46}
+  B76: gen={D43}, kill={D39, D47}
+  B77: gen={}, kill={}
+  B78: gen={D44}, kill={D40}
+  B79: gen={}, kill={}
+  B80: gen={D45}, kill={D41, D42, D46}
+  B81: gen={D46}, kill={D41, D42, D45}
+  B82: gen={D47}, kill={D39, D43}
+  B83: gen={}, kill={}
+  B84: gen={D48}, kill={D11, D21, D24, D57, D58, D60}
+  B85: gen={}, kill={}
+  B86: gen={}, kill={}
+  B87: gen={D49}, kill={D33, D37}
+  B88: gen={D50}, kill={D13, D15}
+  B89: gen={D51}, kill={}
+  B90: gen={D52}, kill={D10, D12, D14, D16, D2, D20, D22, D23, D26, D30, D32, D36, D56, D59, D9}
+  B91: gen={}, kill={}
+  B92: gen={}, kill={}
+  B93: gen={}, kill={}
+  B94: gen={}, kill={}
+  B95: gen={}, kill={}
+  B96: gen={}, kill={}
+  B97: gen={}, kill={}
+  B98: gen={}, kill={}
+  B99: gen={}, kill={}
+  B100: gen={}, kill={}
+  B101: gen={}, kill={}
+  B102: gen={}, kill={}
+  B103: gen={}, kill={}
+  B104: gen={D53}, kill={D54}
+  B105: gen={}, kill={}
+  B106: gen={}, kill={}
+  B107: gen={D54}, kill={D53}
+  B108: gen={}, kill={}
+  B109: gen={}, kill={}
+  B110: gen={}, kill={}
+  B111: gen={}, kill={}
+  B112: gen={D55}, kill={}
+  B113: gen={}, kill={}
+  B114: gen={}, kill={}
+  B115: gen={D56}, kill={D10, D12, D14, D16, D2, D20, D22, D23, D26, D30, D32, D36, D52, D59, D9}
+  B116: gen={}, kill={}
+  B117: gen={}, kill={}
+  B118: gen={}, kill={}
+  B119: gen={D57}, kill={D11, D21, D24, D48, D58, D60}
+  B120: gen={}, kill={}
+  B121: gen={}, kill={}
+  B122: gen={D58}, kill={D11, D21, D24, D48, D57, D60}
+  B123: gen={}, kill={}
+  B124: gen={}, kill={}
+  B125: gen={D59}, kill={D10, D12, D14, D16, D2, D20, D22, D23, D26, D30, D32, D36, D52, D56, D9}
+  B126: gen={}, kill={}
+  B127: gen={}, kill={}
+  B128: gen={}, kill={}
+  B129: gen={D60}, kill={D11, D21, D24, D48, D57, D58}
+  B130: gen={}, kill={}
+  B131: gen={}, kill={}
+  B132: gen={}, kill={}
+  B133: gen={}, kill={}
+  B134: gen={}, kill={}
+  B135: gen={}, kill={}
+  B136: gen={}, kill={}
+  B137: gen={}, kill={}
+  B138: gen={}, kill={}
+  B139: gen={}, kill={}
+
+Iterative computation (per iteration):
+
+Iteration 1:
+Block                       IN                 OUT
+B0                          {}                {D1}
+B1                        {D1}            {D1, D2}
+B2                    {D1, D2}        {D1, D2, D3}
+B3                {D1, D2, D3}    {D1, D2, D3, D4}
+B4            {D1, D2, D3, D4}    {D1, D2, D3, D5}
+B5          {D1, D2, D3, D4, D5}    {D1, D2, D3, D6}
+B6          {D1, D2, D3, D5, D6}    {D1, D2, D3, D7}
+B7          {D1, D2, D3, D6, D7}    {D1, D2, D3, D8}
+B8          {D1, D2, D3, D7, D8}{D1, D2, D3, D7, D8}
+B9          {D1, D2, D3, D7, D8}{D1, D3, D7, D8, D9}
+B10         {D1, D3, D7, D8, D9}{D1, D3, D7, D8, D9}
+B11         {D1, D3, D7, D8, D9}{D1, D10, D3, D7, D8}
+B12         {D1, D10, D3, D7, D8}{D1, D10, D3, D7, D8}
+B13         {D1, D10, D3, D7, D8}{D1, D10, D11, D3, D7, D8}
+B14         {D1, D10, D11, D3, D7, D8}{D1, D10, D11, D3, D7, D8}
+B15         {D1, D10, D11, D3, D7, D8}{D1, D10, D11, D3, D7, D8}
+B16         {D1, D10, D11, D3, D7, D8}{D1, D11, D12, D3, D7, D8}
+B17         {D1, D11, D12, D3, D7, D8}{D1, D11, D12, D13, D3, D7, D8}
+B18                         {}                  {}
+B19                         {}               {D14}
+B20                      {D14}               {D14}
+B21                      {D14}          {D14, D15}
+B22                      {D14}               {D14}
+B23                         {}                  {}
+B24                         {}               {D16}
+B25                      {D16}               {D16}
+B26                      {D16}               {D16}
+B27                      {D16}          {D16, D17}
+B28                 {D16, D17}     {D16, D18, D19}
+B29            {D16, D18, D19}     {D18, D19, D20}
+B30            {D18, D19, D20}     {D18, D19, D20}
+B31            {D18, D19, D20}     {D18, D19, D20}
+B32            {D18, D19, D20}     {D18, D19, D20}
+B33            {D18, D19, D20}     {D18, D19, D20}
+B34            {D18, D19, D20}     {D18, D19, D20}
+B35            {D18, D19, D20}{D18, D19, D20, D21}
+B36         {D18, D19, D20, D21}{D18, D19, D20, D21}
+B37         {D18, D19, D20, D21}{D18, D19, D21, D22}
+B38         {D18, D19, D20, D21, D22}{D18, D19, D20, D21, D22}
+B39                         {}                  {}
+B40                         {}               {D23}
+B41                      {D23}               {D23}
+B42                      {D23}     {D23, D24, D25}
+B43            {D23, D24, D25}     {D24, D25, D26}
+B44            {D24, D25, D26}     {D24, D25, D26}
+B45            {D24, D25, D26}     {D24, D26, D27}
+B46         {D24, D25, D26, D27}{D24, D25, D26, D27}
+B47            {D24, D26, D27}{D24, D26, D27, D28, D29}
+B48         {D24, D26, D27, D28, D29}{D24, D27, D28, D29, D30}
+B49         {D24, D27, D28, D29, D30}{D24, D27, D28, D29, D30}
+B50         {D24, D27, D28, D29, D30}{D24, D27, D29, D30, D31}
+B51         {D24, D27, D28, D29, D30}{D24, D27, D28, D29, D30}
+B52         {D24, D27, D28, D29, D30}{D24, D27, D28, D29, D32}
+B53         {D24, D27, D28, D29, D32}{D24, D27, D28, D29, D32, D33}
+B54         {D24, D27, D28, D29, D32, D33}{D24, D27, D28, D29, D32, D33}
+B55         {D24, D27, D28, D29, D32, D33}{D24, D27, D28, D29, D32, D33}
+B56         {D24, D27, D28, D29, D32, D33}{D24, D27, D28, D29, D32, D33, D34, D35}
+B57         {D24, D27, D28, D29, D32, D33, D34, D35}{D24, D27, D28, D29, D32, D33, D34, D35}
+B58         {D24, D27, D28, D29, D32, D33, D34, D35}{D24, D27, D28, D29, D32, D33, D34, D35}
+B59         {D24, D27, D28, D29, D32, D33, D34, D35}{D24, D27, D28, D29, D33, D34, D35, D36}
+B60         {D24, D27, D28, D29, D33, D34, D35, D36}{D24, D27, D28, D29, D33, D34, D35, D36}
+B61         {D24, D27, D28, D29, D33, D34, D35, D36}{D24, D27, D28, D29, D33, D34, D35, D36}
+B62         {D24, D27, D28, D29, D33, D34, D35, D36}{D24, D27, D28, D29, D34, D35, D36, D37}
+B63         {D24, D27, D28, D29, D34, D35, D36, D37}{D24, D27, D28, D29, D34, D35, D36, D37}
+B64                         {}               {D38}
+B65                      {D38}               {D38}
+B66                      {D38}               {D38}
+B67                      {D38}               {D38}
+B68                      {D38}               {D38}
+B69                      {D38}               {D38}
+B70                      {D38}          {D38, D39}
+B71                 {D38, D39}          {D38, D39}
+B72                 {D38, D39}     {D38, D39, D40}
+B73            {D38, D39, D40}     {D38, D39, D40}
+B74            {D38, D39, D40}{D38, D39, D40, D41}
+B75         {D38, D39, D40, D41}{D38, D39, D40, D42}
+B76         {D38, D39, D40, D42}{D38, D40, D42, D43}
+B77         {D38, D39, D40, D42, D43}{D38, D39, D40, D42, D43}
+B78         {D38, D39, D40, D42, D43}{D38, D39, D42, D43, D44}
+B79         {D38, D39, D40, D42, D43, D44}{D38, D39, D40, D42, D43, D44}
+B80         {D38, D39, D40, D42, D43, D44}{D38, D39, D40, D43, D44, D45}
+B81         {D38, D39, D40, D42, D43, D44, D45}{D38, D39, D40, D43, D44, D46}
+B82         {D38, D39, D40, D43, D44, D46}{D38, D40, D44, D46, D47}
+B83         {D38, D39, D40, D43, D44, D46, D47}{D38, D39, D40, D43, D44, D46, D47}
+B84         {D38, D39, D40, D43, D44, D46, D47}{D38, D39, D40, D43, D44, D46, D47, D48}
+B85         {D38, D39, D40, D43, D44, D46, D47, D48}{D38, D39, D40, D43, D44, D46, D47, D48}
+B86         {D38, D39, D40, D43, D44, D46, D47, D48}{D38, D39, D40, D43, D44, D46, D47, D48}
+B87         {D38, D39, D40, D43, D44, D46, D47, D48}{D38, D39, D40, D43, D44, D46, D47, D48, D49}
+B88         {D38, D39, D40, D43, D44, D46, D47, D48, D49}{D38, D39, D40, D43, D44, D46, D47, D48, D49, D50}
+B89                         {}               {D51}
+B90                      {D51}          {D51, D52}
+B91                 {D51, D52}          {D51, D52}
+B92                 {D51, D52}          {D51, D52}
+B93                 {D51, D52}          {D51, D52}
+B94                 {D51, D52}          {D51, D52}
+B95                 {D51, D52}          {D51, D52}
+B96                 {D51, D52}          {D51, D52}
+B97                 {D51, D52}          {D51, D52}
+B98                 {D51, D52}          {D51, D52}
+B99                         {}                  {}
+B100                        {}                  {}
+B101                        {}                  {}
+B102                        {}                  {}
+B103                        {}                  {}
+B104                        {}               {D53}
+B105                     {D53}               {D53}
+B106                        {}                  {}
+B107                        {}               {D54}
+B108                     {D54}               {D54}
+B109                     {D54}               {D54}
+B110                     {D54}               {D54}
+B111                     {D54}               {D54}
+B112                     {D54}          {D54, D55}
+B113                {D54, D55}          {D54, D55}
+B114                {D54, D55}          {D54, D55}
+B115                {D54, D55}     {D54, D55, D56}
+B116           {D54, D55, D56}     {D54, D55, D56}
+B117           {D54, D55, D56}     {D54, D55, D56}
+B118           {D54, D55, D56}     {D54, D55, D56}
+B119           {D54, D55, D56}{D54, D55, D56, D57}
+B120        {D54, D55, D56, D57}{D54, D55, D56, D57}
+B121        {D54, D55, D56, D57}{D54, D55, D56, D57}
+B122        {D54, D55, D56, D57}{D54, D55, D56, D58}
+B123        {D54, D55, D56, D58}{D54, D55, D56, D58}
+B124        {D54, D55, D56, D58}{D54, D55, D56, D58}
+B125        {D54, D55, D56, D58}{D54, D55, D58, D59}
+B126        {D54, D55, D58, D59}{D54, D55, D58, D59}
+B127        {D54, D55, D58, D59}{D54, D55, D58, D59}
+B128        {D54, D55, D58, D59}{D54, D55, D58, D59}
+B129        {D54, D55, D58, D59}{D54, D55, D59, D60}
+B130        {D54, D55, D59, D60}{D54, D55, D59, D60}
+B131        {D54, D55, D59, D60}{D54, D55, D59, D60}
+B132        {D54, D55, D59, D60}{D54, D55, D59, D60}
+B133        {D54, D55, D59, D60}{D54, D55, D59, D60}
+B134        {D54, D55, D59, D60}{D54, D55, D59, D60}
+B135        {D54, D55, D59, D60}{D54, D55, D59, D60}
+B136        {D54, D55, D59, D60}{D54, D55, D59, D60}
+B137        {D54, D55, D59, D60}{D54, D55, D59, D60}
+B138        {D54, D55, D59, D60}{D54, D55, D59, D60}
+B139                        {}                  {}
+
+Iteration 2:
+Block                       IN                 OUT
+B0                          {}                {D1}
+B1                {D1, D2, D3}        {D1, D2, D3}
+B2                {D1, D2, D3}        {D1, D2, D3}
+B3                {D1, D2, D3}    {D1, D2, D3, D4}
+B4            {D1, D2, D3, D4}    {D1, D2, D3, D5}
+B5          {D1, D2, D3, D4, D5}    {D1, D2, D3, D6}
+B6          {D1, D2, D3, D5, D6}    {D1, D2, D3, D7}
+B7          {D1, D2, D3, D6, D7}    {D1, D2, D3, D8}
+B8          {D1, D2, D3, D7, D8}{D1, D2, D3, D7, D8}
+B9          {D1, D2, D3, D7, D8, D9}{D1, D3, D7, D8, D9}
+B10         {D1, D3, D7, D8, D9}{D1, D3, D7, D8, D9}
+B11         {D1, D10, D3, D7, D8, D9}{D1, D10, D3, D7, D8}
+B12         {D1, D10, D3, D7, D8}{D1, D10, D3, D7, D8}
+B13         {D1, D10, D3, D7, D8}{D1, D10, D11, D3, D7, D8}
+B14         {D1, D10, D11, D3, D7, D8}{D1, D10, D11, D3, D7, D8}
+B15         {D1, D10, D11, D3, D7, D8}{D1, D10, D11, D3, D7, D8}
+B16         {D1, D10, D11, D12, D13, D3, D7, D8}{D1, D11, D12, D13, D3, D7, D8}
+B17         {D1, D11, D12, D13, D3, D7, D8}{D1, D11, D12, D13, D3, D7, D8}
+B18                         {}                  {}
+B19                      {D14}               {D14}
+B20                      {D14}               {D14}
+B21                      {D14}          {D14, D15}
+B22                      {D14}               {D14}
+B23                         {}                  {}
+B24                      {D16}               {D16}
+B25                      {D16}               {D16}
+B26                      {D16}               {D16}
+B27            {D16, D18, D19}     {D16, D17, D19}
+B28            {D16, D17, D19}     {D16, D18, D19}
+B29         {D16, D18, D19, D20}     {D18, D19, D20}
+B30            {D18, D19, D20}     {D18, D19, D20}
+B31            {D18, D19, D20}     {D18, D19, D20}
+B32            {D18, D19, D20}     {D18, D19, D20}
+B33            {D18, D19, D20}     {D18, D19, D20}
+B34            {D18, D19, D20}     {D18, D19, D20}
+B35            {D18, D19, D20}{D18, D19, D20, D21}
+B36         {D18, D19, D20, D21}{D18, D19, D20, D21}
+B37         {D18, D19, D20, D21, D22}{D18, D19, D21, D22}
+B38         {D18, D19, D20, D21, D22}{D18, D19, D20, D21, D22}
+B39                         {}                  {}
+B40                      {D23}               {D23}
+B41                      {D23}               {D23}
+B42                      {D23}     {D23, D24, D25}
+B43         {D23, D24, D25, D26}     {D24, D25, D26}
+B44            {D24, D25, D26}     {D24, D25, D26}
+B45            {D24, D25, D26}     {D24, D26, D27}
+B46         {D24, D25, D26, D27}{D24, D25, D26, D27}
+B47            {D24, D26, D27}{D24, D26, D27, D28, D29}
+B48         {D24, D26, D27, D28, D29, D30}{D24, D27, D28, D29, D30}
+B49         {D24, D27, D28, D29, D30}{D24, D27, D28, D29, D30}
+B50         {D24, D27, D28, D29, D30}{D24, D27, D29, D30, D31}
+B51         {D24, D27, D28, D29, D30}{D24, D27, D28, D29, D30}
+B52         {D24, D27, D28, D29, D30, D32, D33}{D24, D27, D28, D29, D32, D33}
+B53         {D24, D27, D28, D29, D32, D33}{D24, D27, D28, D29, D32, D33}
+B54         {D24, D27, D28, D29, D32, D33}{D24, D27, D28, D29, D32, D33}
+B55         {D24, D27, D28, D29, D32, D33}{D24, D27, D28, D29, D32, D33}
+B56         {D24, D27, D28, D29, D32, D33}{D24, D27, D28, D29, D32, D33, D34, D35}
+B57         {D24, D27, D28, D29, D32, D33, D34, D35}{D24, D27, D28, D29, D32, D33, D34, D35}
+B58         {D24, D27, D28, D29, D32, D33, D34, D35}{D24, D27, D28, D29, D32, D33, D34, D35}
+B59         {D24, D27, D28, D29, D32, D33, D34, D35, D36}{D24, D27, D28, D29, D33, D34, D35, D36}
+B60         {D24, D27, D28, D29, D33, D34, D35, D36}{D24, D27, D28, D29, D33, D34, D35, D36}
+B61         {D24, D27, D28, D29, D33, D34, D35, D36}{D24, D27, D28, D29, D33, D34, D35, D36}
+B62         {D24, D27, D28, D29, D33, D34, D35, D36, D37}{D24, D27, D28, D29, D34, D35, D36, D37}
+B63         {D24, D27, D28, D29, D34, D35, D36, D37}{D24, D27, D28, D29, D34, D35, D36, D37}
+B64                         {}               {D38}
+B65                      {D38}               {D38}
+B66                      {D38}               {D38}
+B67                      {D38}               {D38}
+B68                      {D38}               {D38}
+B69                 {D38, D39}          {D38, D39}
+B70                 {D38, D39}          {D38, D39}
+B71                 {D38, D39}          {D38, D39}
+B72                 {D38, D39}     {D38, D39, D40}
+B73            {D38, D39, D40}     {D38, D39, D40}
+B74            {D38, D39, D40}{D38, D39, D40, D41}
+B75         {D38, D39, D40, D41}{D38, D39, D40, D42}
+B76         {D38, D39, D40, D42}{D38, D40, D42, D43}
+B77         {D38, D39, D40, D42, D43}{D38, D39, D40, D42, D43}
+B78         {D38, D39, D40, D42, D43}{D38, D39, D42, D43, D44}
+B79         {D38, D39, D40, D42, D43, D44}{D38, D39, D40, D42, D43, D44}
+B80         {D38, D39, D40, D42, D43, D44}{D38, D39, D40, D43, D44, D45}
+B81         {D38, D39, D40, D42, D43, D44, D45}{D38, D39, D40, D43, D44, D46}
+B82         {D38, D39, D40, D43, D44, D46}{D38, D40, D44, D46, D47}
+B83         {D38, D39, D40, D43, D44, D46, D47}{D38, D39, D40, D43, D44, D46, D47}
+B84         {D38, D39, D40, D43, D44, D46, D47}{D38, D39, D40, D43, D44, D46, D47, D48}
+B85         {D38, D39, D40, D43, D44, D46, D47, D48}{D38, D39, D40, D43, D44, D46, D47, D48}
+B86         {D38, D39, D40, D43, D44, D46, D47, D48}{D38, D39, D40, D43, D44, D46, D47, D48}
+B87         {D38, D39, D40, D43, D44, D46, D47, D48, D49, D50}{D38, D39, D40, D43, D44, D46, D47, D48, D49, D50}
+B88         {D38, D39, D40, D43, D44, D46, D47, D48, D49, D50}{D38, D39, D40, D43, D44, D46, D47, D48, D49, D50}
+B89                         {}               {D51}
+B90                 {D51, D52}          {D51, D52}
+B91                 {D51, D52}          {D51, D52}
+B92                 {D51, D52}          {D51, D52}
+B93                 {D51, D52}          {D51, D52}
+B94                 {D51, D52}          {D51, D52}
+B95                 {D51, D52}          {D51, D52}
+B96                 {D51, D52}          {D51, D52}
+B97                 {D51, D52}          {D51, D52}
+B98                 {D51, D52}          {D51, D52}
+B99                         {}                  {}
+B100                        {}                  {}
+B101                        {}                  {}
+B102                        {}                  {}
+B103                        {}                  {}
+B104                     {D53}               {D53}
+B105                     {D53}               {D53}
+B106                        {}                  {}
+B107                     {D54}               {D54}
+B108                     {D54}               {D54}
+B109                     {D54}               {D54}
+B110                     {D54}               {D54}
+B111                {D54, D55}          {D54, D55}
+B112                {D54, D55}          {D54, D55}
+B113                {D54, D55}          {D54, D55}
+B114                {D54, D55}          {D54, D55}
+B115           {D54, D55, D56}     {D54, D55, D56}
+B116           {D54, D55, D56}     {D54, D55, D56}
+B117           {D54, D55, D56}     {D54, D55, D56}
+B118           {D54, D55, D56}     {D54, D55, D56}
+B119           {D54, D55, D56}{D54, D55, D56, D57}
+B120        {D54, D55, D56, D57}{D54, D55, D56, D57}
+B121        {D54, D55, D56, D57}{D54, D55, D56, D57}
+B122        {D54, D55, D56, D57}{D54, D55, D56, D58}
+B123        {D54, D55, D56, D58}{D54, D55, D56, D58}
+B124        {D54, D55, D56, D58}{D54, D55, D56, D58}
+B125        {D54, D55, D56, D58, D59}{D54, D55, D58, D59}
+B126        {D54, D55, D58, D59}{D54, D55, D58, D59}
+B127        {D54, D55, D58, D59}{D54, D55, D58, D59}
+B128        {D54, D55, D58, D59}{D54, D55, D58, D59}
+B129        {D54, D55, D58, D59}{D54, D55, D59, D60}
+B130        {D54, D55, D59, D60}{D54, D55, D59, D60}
+B131        {D54, D55, D59, D60}{D54, D55, D59, D60}
+B132        {D54, D55, D59, D60}{D54, D55, D59, D60}
+B133        {D54, D55, D59, D60}{D54, D55, D59, D60}
+B134        {D54, D55, D59, D60}{D54, D55, D59, D60}
+B135        {D54, D55, D59, D60}{D54, D55, D59, D60}
+B136        {D54, D55, D59, D60}{D54, D55, D59, D60}
+B137        {D54, D55, D59, D60}{D54, D55, D59, D60}
+B138        {D54, D55, D59, D60}{D54, D55, D59, D60}
+B139                        {}                  {}
+
+Iteration 3:
+Block                       IN                 OUT
+B0                          {}                {D1}
+B1                {D1, D2, D3}        {D1, D2, D3}
+B2                {D1, D2, D3}        {D1, D2, D3}
+B3                {D1, D2, D3}    {D1, D2, D3, D4}
+B4            {D1, D2, D3, D4}    {D1, D2, D3, D5}
+B5          {D1, D2, D3, D4, D5}    {D1, D2, D3, D6}
+B6          {D1, D2, D3, D5, D6}    {D1, D2, D3, D7}
+B7          {D1, D2, D3, D6, D7}    {D1, D2, D3, D8}
+B8          {D1, D2, D3, D7, D8}{D1, D2, D3, D7, D8}
+B9          {D1, D2, D3, D7, D8, D9}{D1, D3, D7, D8, D9}
+B10         {D1, D3, D7, D8, D9}{D1, D3, D7, D8, D9}
+B11         {D1, D10, D3, D7, D8, D9}{D1, D10, D3, D7, D8}
+B12         {D1, D10, D3, D7, D8}{D1, D10, D3, D7, D8}
+B13         {D1, D10, D3, D7, D8}{D1, D10, D11, D3, D7, D8}
+B14         {D1, D10, D11, D3, D7, D8}{D1, D10, D11, D3, D7, D8}
+B15         {D1, D10, D11, D3, D7, D8}{D1, D10, D11, D3, D7, D8}
+B16         {D1, D10, D11, D12, D13, D3, D7, D8}{D1, D11, D12, D13, D3, D7, D8}
+B17         {D1, D11, D12, D13, D3, D7, D8}{D1, D11, D12, D13, D3, D7, D8}
+B18                         {}                  {}
+B19                      {D14}               {D14}
+B20                      {D14}               {D14}
+B21                      {D14}          {D14, D15}
+B22                      {D14}               {D14}
+B23                         {}                  {}
+B24                      {D16}               {D16}
+B25                      {D16}               {D16}
+B26                      {D16}               {D16}
+B27            {D16, D18, D19}     {D16, D17, D19}
+B28            {D16, D17, D19}     {D16, D18, D19}
+B29         {D16, D18, D19, D20}     {D18, D19, D20}
+B30            {D18, D19, D20}     {D18, D19, D20}
+B31            {D18, D19, D20}     {D18, D19, D20}
+B32            {D18, D19, D20}     {D18, D19, D20}
+B33            {D18, D19, D20}     {D18, D19, D20}
+B34            {D18, D19, D20}     {D18, D19, D20}
+B35            {D18, D19, D20}{D18, D19, D20, D21}
+B36         {D18, D19, D20, D21}{D18, D19, D20, D21}
+B37         {D18, D19, D20, D21, D22}{D18, D19, D21, D22}
+B38         {D18, D19, D20, D21, D22}{D18, D19, D20, D21, D22}
+B39                         {}                  {}
+B40                      {D23}               {D23}
+B41                      {D23}               {D23}
+B42                      {D23}     {D23, D24, D25}
+B43         {D23, D24, D25, D26}     {D24, D25, D26}
+B44            {D24, D25, D26}     {D24, D25, D26}
+B45            {D24, D25, D26}     {D24, D26, D27}
+B46         {D24, D25, D26, D27}{D24, D25, D26, D27}
+B47            {D24, D26, D27}{D24, D26, D27, D28, D29}
+B48         {D24, D26, D27, D28, D29, D30}{D24, D27, D28, D29, D30}
+B49         {D24, D27, D28, D29, D30}{D24, D27, D28, D29, D30}
+B50         {D24, D27, D28, D29, D30}{D24, D27, D29, D30, D31}
+B51         {D24, D27, D28, D29, D30}{D24, D27, D28, D29, D30}
+B52         {D24, D27, D28, D29, D30, D32, D33}{D24, D27, D28, D29, D32, D33}
+B53         {D24, D27, D28, D29, D32, D33}{D24, D27, D28, D29, D32, D33}
+B54         {D24, D27, D28, D29, D32, D33}{D24, D27, D28, D29, D32, D33}
+B55         {D24, D27, D28, D29, D32, D33}{D24, D27, D28, D29, D32, D33}
+B56         {D24, D27, D28, D29, D32, D33}{D24, D27, D28, D29, D32, D33, D34, D35}
+B57         {D24, D27, D28, D29, D32, D33, D34, D35}{D24, D27, D28, D29, D32, D33, D34, D35}
+B58         {D24, D27, D28, D29, D32, D33, D34, D35}{D24, D27, D28, D29, D32, D33, D34, D35}
+B59         {D24, D27, D28, D29, D32, D33, D34, D35, D36}{D24, D27, D28, D29, D33, D34, D35, D36}
+B60         {D24, D27, D28, D29, D33, D34, D35, D36}{D24, D27, D28, D29, D33, D34, D35, D36}
+B61         {D24, D27, D28, D29, D33, D34, D35, D36}{D24, D27, D28, D29, D33, D34, D35, D36}
+B62         {D24, D27, D28, D29, D33, D34, D35, D36, D37}{D24, D27, D28, D29, D34, D35, D36, D37}
+B63         {D24, D27, D28, D29, D34, D35, D36, D37}{D24, D27, D28, D29, D34, D35, D36, D37}
+B64                         {}               {D38}
+B65                      {D38}               {D38}
+B66                      {D38}               {D38}
+B67                      {D38}               {D38}
+B68                      {D38}               {D38}
+B69                 {D38, D39}          {D38, D39}
+B70                 {D38, D39}          {D38, D39}
+B71                 {D38, D39}          {D38, D39}
+B72                 {D38, D39}     {D38, D39, D40}
+B73            {D38, D39, D40}     {D38, D39, D40}
+B74            {D38, D39, D40}{D38, D39, D40, D41}
+B75         {D38, D39, D40, D41}{D38, D39, D40, D42}
+B76         {D38, D39, D40, D42}{D38, D40, D42, D43}
+B77         {D38, D39, D40, D42, D43}{D38, D39, D40, D42, D43}
+B78         {D38, D39, D40, D42, D43}{D38, D39, D42, D43, D44}
+B79         {D38, D39, D40, D42, D43, D44}{D38, D39, D40, D42, D43, D44}
+B80         {D38, D39, D40, D42, D43, D44}{D38, D39, D40, D43, D44, D45}
+B81         {D38, D39, D40, D42, D43, D44, D45}{D38, D39, D40, D43, D44, D46}
+B82         {D38, D39, D40, D43, D44, D46}{D38, D40, D44, D46, D47}
+B83         {D38, D39, D40, D43, D44, D46, D47}{D38, D39, D40, D43, D44, D46, D47}
+B84         {D38, D39, D40, D43, D44, D46, D47}{D38, D39, D40, D43, D44, D46, D47, D48}
+B85         {D38, D39, D40, D43, D44, D46, D47, D48}{D38, D39, D40, D43, D44, D46, D47, D48}
+B86         {D38, D39, D40, D43, D44, D46, D47, D48}{D38, D39, D40, D43, D44, D46, D47, D48}
+B87         {D38, D39, D40, D43, D44, D46, D47, D48, D49, D50}{D38, D39, D40, D43, D44, D46, D47, D48, D49, D50}
+B88         {D38, D39, D40, D43, D44, D46, D47, D48, D49, D50}{D38, D39, D40, D43, D44, D46, D47, D48, D49, D50}
+B89                         {}               {D51}
+B90                 {D51, D52}          {D51, D52}
+B91                 {D51, D52}          {D51, D52}
+B92                 {D51, D52}          {D51, D52}
+B93                 {D51, D52}          {D51, D52}
+B94                 {D51, D52}          {D51, D52}
+B95                 {D51, D52}          {D51, D52}
+B96                 {D51, D52}          {D51, D52}
+B97                 {D51, D52}          {D51, D52}
+B98                 {D51, D52}          {D51, D52}
+B99                         {}                  {}
+B100                        {}                  {}
+B101                        {}                  {}
+B102                        {}                  {}
+B103                        {}                  {}
+B104                     {D53}               {D53}
+B105                     {D53}               {D53}
+B106                        {}                  {}
+B107                     {D54}               {D54}
+B108                     {D54}               {D54}
+B109                     {D54}               {D54}
+B110                     {D54}               {D54}
+B111                {D54, D55}          {D54, D55}
+B112                {D54, D55}          {D54, D55}
+B113                {D54, D55}          {D54, D55}
+B114                {D54, D55}          {D54, D55}
+B115           {D54, D55, D56}     {D54, D55, D56}
+B116           {D54, D55, D56}     {D54, D55, D56}
+B117           {D54, D55, D56}     {D54, D55, D56}
+B118           {D54, D55, D56}     {D54, D55, D56}
+B119           {D54, D55, D56}{D54, D55, D56, D57}
+B120        {D54, D55, D56, D57}{D54, D55, D56, D57}
+B121        {D54, D55, D56, D57}{D54, D55, D56, D57}
+B122        {D54, D55, D56, D57}{D54, D55, D56, D58}
+B123        {D54, D55, D56, D58}{D54, D55, D56, D58}
+B124        {D54, D55, D56, D58}{D54, D55, D56, D58}
+B125        {D54, D55, D56, D58, D59}{D54, D55, D58, D59}
+B126        {D54, D55, D58, D59}{D54, D55, D58, D59}
+B127        {D54, D55, D58, D59}{D54, D55, D58, D59}
+B128        {D54, D55, D58, D59}{D54, D55, D58, D59}
+B129        {D54, D55, D58, D59}{D54, D55, D59, D60}
+B130        {D54, D55, D59, D60}{D54, D55, D59, D60}
+B131        {D54, D55, D59, D60}{D54, D55, D59, D60}
+B132        {D54, D55, D59, D60}{D54, D55, D59, D60}
+B133        {D54, D55, D59, D60}{D54, D55, D59, D60}
+B134        {D54, D55, D59, D60}{D54, D55, D59, D60}
+B135        {D54, D55, D59, D60}{D54, D55, D59, D60}
+B136        {D54, D55, D59, D60}{D54, D55, D59, D60}
+B137        {D54, D55, D59, D60}{D54, D55, D59, D60}
+B138        {D54, D55, D59, D60}{D54, D55, D59, D60}
+B139                        {}                  {}
+
+Final IN/OUT sets:
+  B0: IN={}, OUT={D1}
+  B1: IN={D1, D2, D3}, OUT={D1, D2, D3}
+  B2: IN={D1, D2, D3}, OUT={D1, D2, D3}
+  B3: IN={D1, D2, D3}, OUT={D1, D2, D3, D4}
+  B4: IN={D1, D2, D3, D4}, OUT={D1, D2, D3, D5}
+  B5: IN={D1, D2, D3, D4, D5}, OUT={D1, D2, D3, D6}
+  B6: IN={D1, D2, D3, D5, D6}, OUT={D1, D2, D3, D7}
+  B7: IN={D1, D2, D3, D6, D7}, OUT={D1, D2, D3, D8}
+  B8: IN={D1, D2, D3, D7, D8}, OUT={D1, D2, D3, D7, D8}
+  B9: IN={D1, D2, D3, D7, D8, D9}, OUT={D1, D3, D7, D8, D9}
+  B10: IN={D1, D3, D7, D8, D9}, OUT={D1, D3, D7, D8, D9}
+  B11: IN={D1, D10, D3, D7, D8, D9}, OUT={D1, D10, D3, D7, D8}
+  B12: IN={D1, D10, D3, D7, D8}, OUT={D1, D10, D3, D7, D8}
+  B13: IN={D1, D10, D3, D7, D8}, OUT={D1, D10, D11, D3, D7, D8}
+  B14: IN={D1, D10, D11, D3, D7, D8}, OUT={D1, D10, D11, D3, D7, D8}
+  B15: IN={D1, D10, D11, D3, D7, D8}, OUT={D1, D10, D11, D3, D7, D8}
+  B16: IN={D1, D10, D11, D12, D13, D3, D7, D8}, OUT={D1, D11, D12, D13, D3, D7, D8}
+  B17: IN={D1, D11, D12, D13, D3, D7, D8}, OUT={D1, D11, D12, D13, D3, D7, D8}
+  B18: IN={}, OUT={}
+  B19: IN={D14}, OUT={D14}
+  B20: IN={D14}, OUT={D14}
+  B21: IN={D14}, OUT={D14, D15}
+  B22: IN={D14}, OUT={D14}
+  B23: IN={}, OUT={}
+  B24: IN={D16}, OUT={D16}
+  B25: IN={D16}, OUT={D16}
+  B26: IN={D16}, OUT={D16}
+  B27: IN={D16, D18, D19}, OUT={D16, D17, D19}
+  B28: IN={D16, D17, D19}, OUT={D16, D18, D19}
+  B29: IN={D16, D18, D19, D20}, OUT={D18, D19, D20}
+  B30: IN={D18, D19, D20}, OUT={D18, D19, D20}
+  B31: IN={D18, D19, D20}, OUT={D18, D19, D20}
+  B32: IN={D18, D19, D20}, OUT={D18, D19, D20}
+  B33: IN={D18, D19, D20}, OUT={D18, D19, D20}
+  B34: IN={D18, D19, D20}, OUT={D18, D19, D20}
+  B35: IN={D18, D19, D20}, OUT={D18, D19, D20, D21}
+  B36: IN={D18, D19, D20, D21}, OUT={D18, D19, D20, D21}
+  B37: IN={D18, D19, D20, D21, D22}, OUT={D18, D19, D21, D22}
+  B38: IN={D18, D19, D20, D21, D22}, OUT={D18, D19, D20, D21, D22}
+  B39: IN={}, OUT={}
+  B40: IN={D23}, OUT={D23}
+  B41: IN={D23}, OUT={D23}
+  B42: IN={D23}, OUT={D23, D24, D25}
+  B43: IN={D23, D24, D25, D26}, OUT={D24, D25, D26}
+  B44: IN={D24, D25, D26}, OUT={D24, D25, D26}
+  B45: IN={D24, D25, D26}, OUT={D24, D26, D27}
+  B46: IN={D24, D25, D26, D27}, OUT={D24, D25, D26, D27}
+  B47: IN={D24, D26, D27}, OUT={D24, D26, D27, D28, D29}
+  B48: IN={D24, D26, D27, D28, D29, D30}, OUT={D24, D27, D28, D29, D30}
+  B49: IN={D24, D27, D28, D29, D30}, OUT={D24, D27, D28, D29, D30}
+  B50: IN={D24, D27, D28, D29, D30}, OUT={D24, D27, D29, D30, D31}
+  B51: IN={D24, D27, D28, D29, D30}, OUT={D24, D27, D28, D29, D30}
+  B52: IN={D24, D27, D28, D29, D30, D32, D33}, OUT={D24, D27, D28, D29, D32, D33}
+  B53: IN={D24, D27, D28, D29, D32, D33}, OUT={D24, D27, D28, D29, D32, D33}
+  B54: IN={D24, D27, D28, D29, D32, D33}, OUT={D24, D27, D28, D29, D32, D33}
+  B55: IN={D24, D27, D28, D29, D32, D33}, OUT={D24, D27, D28, D29, D32, D33}
+  B56: IN={D24, D27, D28, D29, D32, D33}, OUT={D24, D27, D28, D29, D32, D33, D34, D35}
+  B57: IN={D24, D27, D28, D29, D32, D33, D34, D35}, OUT={D24, D27, D28, D29, D32, D33, D34, D35}
+  B58: IN={D24, D27, D28, D29, D32, D33, D34, D35}, OUT={D24, D27, D28, D29, D32, D33, D34, D35}
+  B59: IN={D24, D27, D28, D29, D32, D33, D34, D35, D36}, OUT={D24, D27, D28, D29, D33, D34, D35, D36}
+  B60: IN={D24, D27, D28, D29, D33, D34, D35, D36}, OUT={D24, D27, D28, D29, D33, D34, D35, D36}
+  B61: IN={D24, D27, D28, D29, D33, D34, D35, D36}, OUT={D24, D27, D28, D29, D33, D34, D35, D36}
+  B62: IN={D24, D27, D28, D29, D33, D34, D35, D36, D37}, OUT={D24, D27, D28, D29, D34, D35, D36, D37}
+  B63: IN={D24, D27, D28, D29, D34, D35, D36, D37}, OUT={D24, D27, D28, D29, D34, D35, D36, D37}
+  B64: IN={}, OUT={D38}
+  B65: IN={D38}, OUT={D38}
+  B66: IN={D38}, OUT={D38}
+  B67: IN={D38}, OUT={D38}
+  B68: IN={D38}, OUT={D38}
+  B69: IN={D38, D39}, OUT={D38, D39}
+  B70: IN={D38, D39}, OUT={D38, D39}
+  B71: IN={D38, D39}, OUT={D38, D39}
+  B72: IN={D38, D39}, OUT={D38, D39, D40}
+  B73: IN={D38, D39, D40}, OUT={D38, D39, D40}
+  B74: IN={D38, D39, D40}, OUT={D38, D39, D40, D41}
+  B75: IN={D38, D39, D40, D41}, OUT={D38, D39, D40, D42}
+  B76: IN={D38, D39, D40, D42}, OUT={D38, D40, D42, D43}
+  B77: IN={D38, D39, D40, D42, D43}, OUT={D38, D39, D40, D42, D43}
+  B78: IN={D38, D39, D40, D42, D43}, OUT={D38, D39, D42, D43, D44}
+  B79: IN={D38, D39, D40, D42, D43, D44}, OUT={D38, D39, D40, D42, D43, D44}
+  B80: IN={D38, D39, D40, D42, D43, D44}, OUT={D38, D39, D40, D43, D44, D45}
+  B81: IN={D38, D39, D40, D42, D43, D44, D45}, OUT={D38, D39, D40, D43, D44, D46}
+  B82: IN={D38, D39, D40, D43, D44, D46}, OUT={D38, D40, D44, D46, D47}
+  B83: IN={D38, D39, D40, D43, D44, D46, D47}, OUT={D38, D39, D40, D43, D44, D46, D47}
+  B84: IN={D38, D39, D40, D43, D44, D46, D47}, OUT={D38, D39, D40, D43, D44, D46, D47, D48}
+  B85: IN={D38, D39, D40, D43, D44, D46, D47, D48}, OUT={D38, D39, D40, D43, D44, D46, D47, D48}
+  B86: IN={D38, D39, D40, D43, D44, D46, D47, D48}, OUT={D38, D39, D40, D43, D44, D46, D47, D48}
+  B87: IN={D38, D39, D40, D43, D44, D46, D47, D48, D49, D50}, OUT={D38, D39, D40, D43, D44, D46, D47, D48, D49, D50}
+  B88: IN={D38, D39, D40, D43, D44, D46, D47, D48, D49, D50}, OUT={D38, D39, D40, D43, D44, D46, D47, D48, D49, D50}
+  B89: IN={}, OUT={D51}
+  B90: IN={D51, D52}, OUT={D51, D52}
+  B91: IN={D51, D52}, OUT={D51, D52}
+  B92: IN={D51, D52}, OUT={D51, D52}
+  B93: IN={D51, D52}, OUT={D51, D52}
+  B94: IN={D51, D52}, OUT={D51, D52}
+  B95: IN={D51, D52}, OUT={D51, D52}
+  B96: IN={D51, D52}, OUT={D51, D52}
+  B97: IN={D51, D52}, OUT={D51, D52}
+  B98: IN={D51, D52}, OUT={D51, D52}
+  B99: IN={}, OUT={}
+  B100: IN={}, OUT={}
+  B101: IN={}, OUT={}
+  B102: IN={}, OUT={}
+  B103: IN={}, OUT={}
+  B104: IN={D53}, OUT={D53}
+  B105: IN={D53}, OUT={D53}
+  B106: IN={}, OUT={}
+  B107: IN={D54}, OUT={D54}
+  B108: IN={D54}, OUT={D54}
+  B109: IN={D54}, OUT={D54}
+  B110: IN={D54}, OUT={D54}
+  B111: IN={D54, D55}, OUT={D54, D55}
+  B112: IN={D54, D55}, OUT={D54, D55}
+  B113: IN={D54, D55}, OUT={D54, D55}
+  B114: IN={D54, D55}, OUT={D54, D55}
+  B115: IN={D54, D55, D56}, OUT={D54, D55, D56}
+  B116: IN={D54, D55, D56}, OUT={D54, D55, D56}
+  B117: IN={D54, D55, D56}, OUT={D54, D55, D56}
+  B118: IN={D54, D55, D56}, OUT={D54, D55, D56}
+  B119: IN={D54, D55, D56}, OUT={D54, D55, D56, D57}
+  B120: IN={D54, D55, D56, D57}, OUT={D54, D55, D56, D57}
+  B121: IN={D54, D55, D56, D57}, OUT={D54, D55, D56, D57}
+  B122: IN={D54, D55, D56, D57}, OUT={D54, D55, D56, D58}
+  B123: IN={D54, D55, D56, D58}, OUT={D54, D55, D56, D58}
+  B124: IN={D54, D55, D56, D58}, OUT={D54, D55, D56, D58}
+  B125: IN={D54, D55, D56, D58, D59}, OUT={D54, D55, D58, D59}
+  B126: IN={D54, D55, D58, D59}, OUT={D54, D55, D58, D59}
+  B127: IN={D54, D55, D58, D59}, OUT={D54, D55, D58, D59}
+  B128: IN={D54, D55, D58, D59}, OUT={D54, D55, D58, D59}
+  B129: IN={D54, D55, D58, D59}, OUT={D54, D55, D59, D60}
+  B130: IN={D54, D55, D59, D60}, OUT={D54, D55, D59, D60}
+  B131: IN={D54, D55, D59, D60}, OUT={D54, D55, D59, D60}
+  B132: IN={D54, D55, D59, D60}, OUT={D54, D55, D59, D60}
+  B133: IN={D54, D55, D59, D60}, OUT={D54, D55, D59, D60}
+  B134: IN={D54, D55, D59, D60}, OUT={D54, D55, D59, D60}
+  B135: IN={D54, D55, D59, D60}, OUT={D54, D55, D59, D60}
+  B136: IN={D54, D55, D59, D60}, OUT={D54, D55, D59, D60}
+  B137: IN={D54, D55, D59, D60}, OUT={D54, D55, D59, D60}
+  B138: IN={D54, D55, D59, D60}, OUT={D54, D55, D59, D60}
+  B139: IN={}, OUT={}
+
+Summary table (per block):
+Basic-Block               gen[B]             kill[B]               in[B]              out[B]
+B0                          {D1}                  {}                  {}                {D1}
+B1                          {D2}{D10, D12, D14, D16, D20, D22, D23, D26, D30, D32, D36, D52, D56, D59, D9}        {D1, D2, D3}        {D1, D2, D3}
+B2                          {D3}                  {}        {D1, D2, D3}        {D1, D2, D3}
+B3                          {D4}    {D5, D6, D7, D8}        {D1, D2, D3}    {D1, D2, D3, D4}
+B4                          {D5}    {D4, D6, D7, D8}    {D1, D2, D3, D4}    {D1, D2, D3, D5}
+B5                          {D6}    {D4, D5, D7, D8}{D1, D2, D3, D4, D5}    {D1, D2, D3, D6}
+B6                          {D7}    {D4, D5, D6, D8}{D1, D2, D3, D5, D6}    {D1, D2, D3, D7}
+B7                          {D8}    {D4, D5, D6, D7}{D1, D2, D3, D6, D7}    {D1, D2, D3, D8}
+B8                            {}                  {}{D1, D2, D3, D7, D8}{D1, D2, D3, D7, D8}
+B9                          {D9}{D10, D12, D14, D16, D2, D20, D22, D23, D26, D30, D32, D36, D52, D56, D59}{D1, D2, D3, D7, D8, D9}{D1, D3, D7, D8, D9}
+B10                           {}                  {}{D1, D3, D7, D8, D9}{D1, D3, D7, D8, D9}
+B11                        {D10}{D12, D14, D16, D2, D20, D22, D23, D26, D30, D32, D36, D52, D56, D59, D9}{D1, D10, D3, D7, D8, D9}{D1, D10, D3, D7, D8}
+B12                           {}                  {}{D1, D10, D3, D7, D8}{D1, D10, D3, D7, D8}
+B13                        {D11}{D21, D24, D48, D57, D58, D60}{D1, D10, D3, D7, D8}{D1, D10, D11, D3, D7, D8}
+B14                           {}                  {}{D1, D10, D11, D3, D7, D8}{D1, D10, D11, D3, D7, D8}
+B15                           {}                  {}{D1, D10, D11, D3, D7, D8}{D1, D10, D11, D3, D7, D8}
+B16                        {D12}{D10, D14, D16, D2, D20, D22, D23, D26, D30, D32, D36, D52, D56, D59, D9}{D1, D10, D11, D12, D13, D3, D7, D8}{D1, D11, D12, D13, D3, D7, D8}
+B17                        {D13}          {D15, D50}{D1, D11, D12, D13, D3, D7, D8}{D1, D11, D12, D13, D3, D7, D8}
+B18                           {}                  {}                  {}                  {}
+B19                        {D14}{D10, D12, D16, D2, D20, D22, D23, D26, D30, D32, D36, D52, D56, D59, D9}               {D14}               {D14}
+B20                           {}                  {}               {D14}               {D14}
+B21                        {D15}          {D13, D50}               {D14}          {D14, D15}
+B22                           {}                  {}               {D14}               {D14}
+B23                           {}                  {}                  {}                  {}
+B24                        {D16}{D10, D12, D14, D2, D20, D22, D23, D26, D30, D32, D36, D52, D56, D59, D9}               {D16}               {D16}
+B25                           {}                  {}               {D16}               {D16}
+B26                           {}                  {}               {D16}               {D16}
+B27                        {D17}               {D18}     {D16, D18, D19}     {D16, D17, D19}
+B28                   {D18, D19}               {D17}     {D16, D17, D19}     {D16, D18, D19}
+B29                        {D20}{D10, D12, D14, D16, D2, D22, D23, D26, D30, D32, D36, D52, D56, D59, D9}{D16, D18, D19, D20}     {D18, D19, D20}
+B30                           {}                  {}     {D18, D19, D20}     {D18, D19, D20}
+B31                           {}                  {}     {D18, D19, D20}     {D18, D19, D20}
+B32                           {}                  {}     {D18, D19, D20}     {D18, D19, D20}
+B33                           {}                  {}     {D18, D19, D20}     {D18, D19, D20}
+B34                           {}                  {}     {D18, D19, D20}     {D18, D19, D20}
+B35                        {D21}{D11, D24, D48, D57, D58, D60}     {D18, D19, D20}{D18, D19, D20, D21}
+B36                           {}                  {}{D18, D19, D20, D21}{D18, D19, D20, D21}
+B37                        {D22}{D10, D12, D14, D16, D2, D20, D23, D26, D30, D32, D36, D52, D56, D59, D9}{D18, D19, D20, D21, D22}{D18, D19, D21, D22}
+B38                           {}                  {}{D18, D19, D20, D21, D22}{D18, D19, D20, D21, D22}
+B39                           {}                  {}                  {}                  {}
+B40                        {D23}{D10, D12, D14, D16, D2, D20, D22, D26, D30, D32, D36, D52, D56, D59, D9}               {D23}               {D23}
+B41                           {}                  {}               {D23}               {D23}
+B42                   {D24, D25}{D11, D21, D27, D48, D57, D58, D60}               {D23}     {D23, D24, D25}
+B43                        {D26}{D10, D12, D14, D16, D2, D20, D22, D23, D30, D32, D36, D52, D56, D59, D9}{D23, D24, D25, D26}     {D24, D25, D26}
+B44                           {}                  {}     {D24, D25, D26}     {D24, D25, D26}
+B45                        {D27}               {D25}     {D24, D25, D26}     {D24, D26, D27}
+B46                           {}                  {}{D24, D25, D26, D27}{D24, D25, D26, D27}
+B47                   {D28, D29}               {D31}     {D24, D26, D27}{D24, D26, D27, D28, D29}
+B48                        {D30}{D10, D12, D14, D16, D2, D20, D22, D23, D26, D32, D36, D52, D56, D59, D9}{D24, D26, D27, D28, D29, D30}{D24, D27, D28, D29, D30}
+B49                           {}                  {}{D24, D27, D28, D29, D30}{D24, D27, D28, D29, D30}
+B50                        {D31}               {D28}{D24, D27, D28, D29, D30}{D24, D27, D29, D30, D31}
+B51                           {}                  {}{D24, D27, D28, D29, D30}{D24, D27, D28, D29, D30}
+B52                        {D32}{D10, D12, D14, D16, D2, D20, D22, D23, D26, D30, D36, D52, D56, D59, D9}{D24, D27, D28, D29, D30, D32, D33}{D24, D27, D28, D29, D32, D33}
+B53                        {D33}          {D37, D49}{D24, D27, D28, D29, D32, D33}{D24, D27, D28, D29, D32, D33}
+B54                           {}                  {}{D24, D27, D28, D29, D32, D33}{D24, D27, D28, D29, D32, D33}
+B55                           {}                  {}{D24, D27, D28, D29, D32, D33}{D24, D27, D28, D29, D32, D33}
+B56                   {D34, D35}               {D38}{D24, D27, D28, D29, D32, D33}{D24, D27, D28, D29, D32, D33, D34, D35}
+B57                           {}                  {}{D24, D27, D28, D29, D32, D33, D34, D35}{D24, D27, D28, D29, D32, D33, D34, D35}
+B58                           {}                  {}{D24, D27, D28, D29, D32, D33, D34, D35}{D24, D27, D28, D29, D32, D33, D34, D35}
+B59                        {D36}{D10, D12, D14, D16, D2, D20, D22, D23, D26, D30, D32, D52, D56, D59, D9}{D24, D27, D28, D29, D32, D33, D34, D35, D36}{D24, D27, D28, D29, D33, D34, D35, D36}
+B60                           {}                  {}{D24, D27, D28, D29, D33, D34, D35, D36}{D24, D27, D28, D29, D33, D34, D35, D36}
+B61                           {}                  {}{D24, D27, D28, D29, D33, D34, D35, D36}{D24, D27, D28, D29, D33, D34, D35, D36}
+B62                        {D37}          {D33, D49}{D24, D27, D28, D29, D33, D34, D35, D36, D37}{D24, D27, D28, D29, D34, D35, D36, D37}
+B63                           {}                  {}{D24, D27, D28, D29, D34, D35, D36, D37}{D24, D27, D28, D29, D34, D35, D36, D37}
+B64                        {D38}               {D35}                  {}               {D38}
+B65                           {}                  {}               {D38}               {D38}
+B66                           {}                  {}               {D38}               {D38}
+B67                           {}                  {}               {D38}               {D38}
+B68                           {}                  {}               {D38}               {D38}
+B69                           {}                  {}          {D38, D39}          {D38, D39}
+B70                        {D39}          {D43, D47}          {D38, D39}          {D38, D39}
+B71                           {}                  {}          {D38, D39}          {D38, D39}
+B72                        {D40}               {D44}          {D38, D39}     {D38, D39, D40}
+B73                           {}                  {}     {D38, D39, D40}     {D38, D39, D40}
+B74                        {D41}     {D42, D45, D46}     {D38, D39, D40}{D38, D39, D40, D41}
+B75                        {D42}     {D41, D45, D46}{D38, D39, D40, D41}{D38, D39, D40, D42}
+B76                        {D43}          {D39, D47}{D38, D39, D40, D42}{D38, D40, D42, D43}
+B77                           {}                  {}{D38, D39, D40, D42, D43}{D38, D39, D40, D42, D43}
+B78                        {D44}               {D40}{D38, D39, D40, D42, D43}{D38, D39, D42, D43, D44}
+B79                           {}                  {}{D38, D39, D40, D42, D43, D44}{D38, D39, D40, D42, D43, D44}
+B80                        {D45}     {D41, D42, D46}{D38, D39, D40, D42, D43, D44}{D38, D39, D40, D43, D44, D45}
+B81                        {D46}     {D41, D42, D45}{D38, D39, D40, D42, D43, D44, D45}{D38, D39, D40, D43, D44, D46}
+B82                        {D47}          {D39, D43}{D38, D39, D40, D43, D44, D46}{D38, D40, D44, D46, D47}
+B83                           {}                  {}{D38, D39, D40, D43, D44, D46, D47}{D38, D39, D40, D43, D44, D46, D47}
+B84                        {D48}{D11, D21, D24, D57, D58, D60}{D38, D39, D40, D43, D44, D46, D47}{D38, D39, D40, D43, D44, D46, D47, D48}
+B85                           {}                  {}{D38, D39, D40, D43, D44, D46, D47, D48}{D38, D39, D40, D43, D44, D46, D47, D48}
+B86                           {}                  {}{D38, D39, D40, D43, D44, D46, D47, D48}{D38, D39, D40, D43, D44, D46, D47, D48}
+B87                        {D49}          {D33, D37}{D38, D39, D40, D43, D44, D46, D47, D48, D49, D50}{D38, D39, D40, D43, D44, D46, D47, D48, D49, D50}
+B88                        {D50}          {D13, D15}{D38, D39, D40, D43, D44, D46, D47, D48, D49, D50}{D38, D39, D40, D43, D44, D46, D47, D48, D49, D50}
+B89                        {D51}                  {}                  {}               {D51}
+B90                        {D52}{D10, D12, D14, D16, D2, D20, D22, D23, D26, D30, D32, D36, D56, D59, D9}          {D51, D52}          {D51, D52}
+B91                           {}                  {}          {D51, D52}          {D51, D52}
+B92                           {}                  {}          {D51, D52}          {D51, D52}
+B93                           {}                  {}          {D51, D52}          {D51, D52}
+B94                           {}                  {}          {D51, D52}          {D51, D52}
+B95                           {}                  {}          {D51, D52}          {D51, D52}
+B96                           {}                  {}          {D51, D52}          {D51, D52}
+B97                           {}                  {}          {D51, D52}          {D51, D52}
+B98                           {}                  {}          {D51, D52}          {D51, D52}
+B99                           {}                  {}                  {}                  {}
+B100                          {}                  {}                  {}                  {}
+B101                          {}                  {}                  {}                  {}
+B102                          {}                  {}                  {}                  {}
+B103                          {}                  {}                  {}                  {}
+B104                       {D53}               {D54}               {D53}               {D53}
+B105                          {}                  {}               {D53}               {D53}
+B106                          {}                  {}                  {}                  {}
+B107                       {D54}               {D53}               {D54}               {D54}
+B108                          {}                  {}               {D54}               {D54}
+B109                          {}                  {}               {D54}               {D54}
+B110                          {}                  {}               {D54}               {D54}
+B111                          {}                  {}          {D54, D55}          {D54, D55}
+B112                       {D55}                  {}          {D54, D55}          {D54, D55}
+B113                          {}                  {}          {D54, D55}          {D54, D55}
+B114                          {}                  {}          {D54, D55}          {D54, D55}
+B115                       {D56}{D10, D12, D14, D16, D2, D20, D22, D23, D26, D30, D32, D36, D52, D59, D9}     {D54, D55, D56}     {D54, D55, D56}
+B116                          {}                  {}     {D54, D55, D56}     {D54, D55, D56}
+B117                          {}                  {}     {D54, D55, D56}     {D54, D55, D56}
+B118                          {}                  {}     {D54, D55, D56}     {D54, D55, D56}
+B119                       {D57}{D11, D21, D24, D48, D58, D60}     {D54, D55, D56}{D54, D55, D56, D57}
+B120                          {}                  {}{D54, D55, D56, D57}{D54, D55, D56, D57}
+B121                          {}                  {}{D54, D55, D56, D57}{D54, D55, D56, D57}
+B122                       {D58}{D11, D21, D24, D48, D57, D60}{D54, D55, D56, D57}{D54, D55, D56, D58}
+B123                          {}                  {}{D54, D55, D56, D58}{D54, D55, D56, D58}
+B124                          {}                  {}{D54, D55, D56, D58}{D54, D55, D56, D58}
+B125                       {D59}{D10, D12, D14, D16, D2, D20, D22, D23, D26, D30, D32, D36, D52, D56, D9}{D54, D55, D56, D58, D59}{D54, D55, D58, D59}
+B126                          {}                  {}{D54, D55, D58, D59}{D54, D55, D58, D59}
+B127                          {}                  {}{D54, D55, D58, D59}{D54, D55, D58, D59}
+B128                          {}                  {}{D54, D55, D58, D59}{D54, D55, D58, D59}
+B129                       {D60}{D11, D21, D24, D48, D57, D58}{D54, D55, D58, D59}{D54, D55, D59, D60}
+B130                          {}                  {}{D54, D55, D59, D60}{D54, D55, D59, D60}
+B131                          {}                  {}{D54, D55, D59, D60}{D54, D55, D59, D60}
+B132                          {}                  {}{D54, D55, D59, D60}{D54, D55, D59, D60}
+B133                          {}                  {}{D54, D55, D59, D60}{D54, D55, D59, D60}
+B134                          {}                  {}{D54, D55, D59, D60}{D54, D55, D59, D60}
+B135                          {}                  {}{D54, D55, D59, D60}{D54, D55, D59, D60}
+B136                          {}                  {}{D54, D55, D59, D60}{D54, D55, D59, D60}
+B137                          {}                  {}{D54, D55, D59, D60}{D54, D55, D59, D60}
+B138                          {}                  {}{D54, D55, D59, D60}{D54, D55, D59, D60}
+B139                          {}                  {}                  {}                  {}
+
+Interpretation of Results:
+Based on IN and OUT sets, the following variables may have multiple possible reaching definitions at the same program point:
+  Block B5 IN: variable 'grade' may be defined by ['D5', 'D4']
+  Block B6 IN: variable 'grade' may be defined by ['D5', 'D6']
+  Block B7 IN: variable 'grade' may be defined by ['D7', 'D6']
+  Block B8 IN: variable 'grade' may be defined by ['D8', 'D7']
+  Block B8 OUT: variable 'grade' may be defined by ['D7', 'D8']
+  Block B9 IN: variable 'grade' may be defined by ['D8', 'D7']
+  Block B9 IN: variable 'i' may be defined by ['D2', 'D9']
+  Block B9 OUT: variable 'grade' may be defined by ['D7', 'D8']
+  Block B10 IN: variable 'grade' may be defined by ['D7', 'D8']
+  Block B10 OUT: variable 'grade' may be defined by ['D7', 'D8']
+  Block B11 IN: variable 'grade' may be defined by ['D8', 'D7']
+  Block B11 IN: variable 'i' may be defined by ['D10', 'D9']
+  Block B11 OUT: variable 'grade' may be defined by ['D7', 'D8']
+  Block B12 IN: variable 'grade' may be defined by ['D7', 'D8']
+  Block B12 OUT: variable 'grade' may be defined by ['D7', 'D8']
+  Block B13 IN: variable 'grade' may be defined by ['D7', 'D8']
+  Block B13 OUT: variable 'grade' may be defined by ['D8', 'D7']
+  Block B14 IN: variable 'grade' may be defined by ['D8', 'D7']
+  Block B14 OUT: variable 'grade' may be defined by ['D8', 'D7']
+  Block B15 IN: variable 'grade' may be defined by ['D8', 'D7']
+  Block B15 OUT: variable 'grade' may be defined by ['D8', 'D7']
+  Block B16 IN: variable 'i' may be defined by ['D12', 'D10']
+  Block B16 IN: variable 'grade' may be defined by ['D7', 'D8']
+  Block B16 OUT: variable 'grade' may be defined by ['D7', 'D8']
+  Block B17 IN: variable 'grade' may be defined by ['D8', 'D7']
+  Block B17 OUT: variable 'grade' may be defined by ['D8', 'D7']
+  Block B29 IN: variable 'i' may be defined by ['D16', 'D20']
+  Block B37 IN: variable 'i' may be defined by ['D22', 'D20']
+  Block B38 IN: variable 'i' may be defined by ['D22', 'D20']
+  Block B38 OUT: variable 'i' may be defined by ['D22', 'D20']
+  Block B43 IN: variable 'i' may be defined by ['D23', 'D26']
+  Block B46 IN: variable 'best' may be defined by ['D25', 'D27']
+  Block B46 OUT: variable 'best' may be defined by ['D25', 'D27']
+  Block B48 IN: variable 'i' may be defined by ['D30', 'D26']
+  Block B52 IN: variable 'i' may be defined by ['D30', 'D32']
+  Block B59 IN: variable 'i' may be defined by ['D36', 'D32']
+  Block B62 IN: variable 'j' may be defined by ['D37', 'D33']
+  Block B77 IN: variable 'p' may be defined by ['D43', 'D39']
+  Block B77 OUT: variable 'p' may be defined by ['D43', 'D39']
+  Block B78 IN: variable 'p' may be defined by ['D43', 'D39']
+  Block B78 OUT: variable 'p' may be defined by ['D43', 'D39']
+  Block B79 IN: variable 'q' may be defined by ['D40', 'D44']
+  Block B79 IN: variable 'p' may be defined by ['D43', 'D39']
+  Block B79 OUT: variable 'p' may be defined by ['D43', 'D39']
+  Block B79 OUT: variable 'q' may be defined by ['D40', 'D44']
+  Block B80 IN: variable 'p' may be defined by ['D43', 'D39']
+  Block B80 IN: variable 'q' may be defined by ['D40', 'D44']
+  Block B80 OUT: variable 'q' may be defined by ['D40', 'D44']
+  Block B80 OUT: variable 'p' may be defined by ['D43', 'D39']
+  Block B81 IN: variable 'q' may be defined by ['D40', 'D44']
+  Block B81 IN: variable 'len' may be defined by ['D45', 'D42']
+  Block B81 IN: variable 'p' may be defined by ['D43', 'D39']
+  Block B81 OUT: variable 'q' may be defined by ['D40', 'D44']
+  Block B81 OUT: variable 'p' may be defined by ['D43', 'D39']
+  Block B82 IN: variable 'q' may be defined by ['D40', 'D44']
+  Block B82 IN: variable 'p' may be defined by ['D43', 'D39']
+  Block B82 OUT: variable 'q' may be defined by ['D40', 'D44']
+  Block B83 IN: variable 'q' may be defined by ['D40', 'D44']
+  Block B83 IN: variable 'p' may be defined by ['D47', 'D43', 'D39']
+  Block B83 OUT: variable 'p' may be defined by ['D39', 'D43', 'D47']
+  Block B83 OUT: variable 'q' may be defined by ['D40', 'D44']
+  Block B84 IN: variable 'p' may be defined by ['D39', 'D43', 'D47']
+  Block B84 IN: variable 'q' may be defined by ['D40', 'D44']
+  Block B84 OUT: variable 'q' may be defined by ['D40', 'D44']
+  Block B84 OUT: variable 'p' may be defined by ['D47', 'D43', 'D39']
+  Block B85 IN: variable 'q' may be defined by ['D40', 'D44']
+  Block B85 IN: variable 'p' may be defined by ['D47', 'D43', 'D39']
+  Block B85 OUT: variable 'q' may be defined by ['D40', 'D44']
+  Block B85 OUT: variable 'p' may be defined by ['D47', 'D43', 'D39']
+  Block B86 IN: variable 'q' may be defined by ['D40', 'D44']
+  Block B86 IN: variable 'p' may be defined by ['D47', 'D43', 'D39']
+  Block B86 OUT: variable 'q' may be defined by ['D40', 'D44']
+  Block B86 OUT: variable 'p' may be defined by ['D47', 'D43', 'D39']
+  Block B87 IN: variable 'q' may be defined by ['D40', 'D44']
+  Block B87 IN: variable 'p' may be defined by ['D47', 'D43', 'D39']
+  Block B87 OUT: variable 'q' may be defined by ['D44', 'D40']
+  Block B87 OUT: variable 'p' may be defined by ['D47', 'D43', 'D39']
+  Block B88 IN: variable 'q' may be defined by ['D44', 'D40']
+  Block B88 IN: variable 'p' may be defined by ['D47', 'D43', 'D39']
+  Block B88 OUT: variable 'q' may be defined by ['D40', 'D44']
+  Block B88 OUT: variable 'p' may be defined by ['D47', 'D43', 'D39']
+  Block B125 IN: variable 'i' may be defined by ['D56', 'D59']
