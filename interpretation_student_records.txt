@@ -1,0 +1,84 @@
+Interpretation of reaching definitions for student_records.c
+
+Block B5 IN: variable 'grade' may be defined by D5, D4
+Block B6 IN: variable 'grade' may be defined by D5, D6
+Block B7 IN: variable 'grade' may be defined by D7, D6
+Block B8 IN: variable 'grade' may be defined by D8, D7
+Block B8 OUT: variable 'grade' may be defined by D8, D7
+Block B9 IN: variable 'grade' may be defined by D8, D7
+Block B9 IN: variable 'i' may be defined by D9, D2
+Block B9 OUT: variable 'grade' may be defined by D8, D7
+Block B10 IN: variable 'grade' may be defined by D8, D7
+Block B10 OUT: variable 'grade' may be defined by D8, D7
+Block B11 IN: variable 'grade' may be defined by D8, D7
+Block B11 IN: variable 'i' may be defined by D10, D9
+Block B11 OUT: variable 'grade' may be defined by D8, D7
+Block B12 IN: variable 'grade' may be defined by D8, D7
+Block B12 OUT: variable 'grade' may be defined by D8, D7
+Block B13 IN: variable 'grade' may be defined by D8, D7
+Block B13 OUT: variable 'grade' may be defined by D8, D7
+Block B14 IN: variable 'grade' may be defined by D8, D7
+Block B14 OUT: variable 'grade' may be defined by D8, D7
+Block B15 IN: variable 'grade' may be defined by D8, D7
+Block B15 OUT: variable 'grade' may be defined by D8, D7
+Block B16 IN: variable 'i' may be defined by D12, D10
+Block B16 IN: variable 'grade' may be defined by D8, D7
+Block B16 OUT: variable 'grade' may be defined by D8, D7
+Block B17 IN: variable 'grade' may be defined by D8, D7
+Block B17 OUT: variable 'grade' may be defined by D8, D7
+Block B29 IN: variable 'i' may be defined by D20, D16
+Block B37 IN: variable 'i' may be defined by D20, D22
+Block B38 IN: variable 'i' may be defined by D20, D22
+Block B38 OUT: variable 'i' may be defined by D20, D22
+Block B43 IN: variable 'i' may be defined by D23, D26
+Block B46 IN: variable 'best' may be defined by D25, D27
+Block B46 OUT: variable 'best' may be defined by D25, D27
+Block B48 IN: variable 'i' may be defined by D30, D26
+Block B52 IN: variable 'i' may be defined by D30, D32
+Block B59 IN: variable 'i' may be defined by D32, D36
+Block B62 IN: variable 'j' may be defined by D33, D37
+Block B77 IN: variable 'p' may be defined by D43, D39
+Block B77 OUT: variable 'p' may be defined by D39, D43
+Block B78 IN: variable 'p' may be defined by D39, D43
+Block B78 OUT: variable 'p' may be defined by D39, D43
+Block B79 IN: variable 'q' may be defined by D40, D44
+Block B79 IN: variable 'p' may be defined by D43, D39
+Block B79 OUT: variable 'p' may be defined by D39, D43
+Block B79 OUT: variable 'q' may be defined by D44, D40
+Block B80 IN: variable 'p' may be defined by D39, D43
+Block B80 IN: variable 'q' may be defined by D44, D40
+Block B80 OUT: variable 'p' may be defined by D39, D43
+Block B80 OUT: variable 'q' may be defined by D44, D40
+Block B81 IN: variable 'len' may be defined by D42, D45
+Block B81 IN: variable 'q' may be defined by D40, D44
+Block B81 IN: variable 'p' may be defined by D43, D39
+Block B81 OUT: variable 'p' may be defined by D39, D43
+Block B81 OUT: variable 'q' may be defined by D44, D40
+Block B82 IN: variable 'p' may be defined by D39, D43
+Block B82 IN: variable 'q' may be defined by D44, D40
+Block B82 OUT: variable 'q' may be defined by D44, D40
+Block B83 IN: variable 'q' may be defined by D40, D44
+Block B83 IN: variable 'p' may be defined by D43, D39, D47
+Block B83 OUT: variable 'p' may be defined by D39, D47, D43
+Block B83 OUT: variable 'q' may be defined by D44, D40
+Block B84 IN: variable 'p' may be defined by D39, D47, D43
+Block B84 IN: variable 'q' may be defined by D44, D40
+Block B84 OUT: variable 'q' may be defined by D40, D44
+Block B84 OUT: variable 'p' may be defined by D43, D39, D47
+Block B85 IN: variable 'q' may be defined by D40, D44
+Block B85 IN: variable 'p' may be defined by D43, D39, D47
+Block B85 OUT: variable 'q' may be defined by D40, D44
+Block B85 OUT: variable 'p' may be defined by D43, D39, D47
+Block B86 IN: variable 'q' may be defined by D40, D44
+Block B86 IN: variable 'p' may be defined by D43, D39, D47
+Block B86 OUT: variable 'q' may be defined by D40, D44
+Block B86 OUT: variable 'p' may be defined by D43, D39, D47
+Block B87 IN: variable 'q' may be defined by D40, D44
+Block B87 IN: variable 'p' may be defined by D43, D39, D47
+Block B87 OUT: variable 'q' may be defined by D40, D44
+Block B87 OUT: variable 'p' may be defined by D43, D39, D47
+Block B88 IN: variable 'q' may be defined by D40, D44
+Block B88 IN: variable 'p' may be defined by D43, D39, D47
+Block B88 OUT: variable 'q' may be defined by D40, D44
+Block B88 OUT: variable 'p' may be defined by D43, D39, D47
+Block B125 IN: variable 'i' may be defined by D59, D56
